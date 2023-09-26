@@ -3,9 +3,9 @@
  * This file contains classes implementing the queue feature.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -145,7 +145,6 @@ class CQueue extends CComponent implements IteratorAggregate,Countable
 	 * This method is required by the interface IteratorAggregate.
 	 * @return Iterator an iterator for traversing the items in the queue.
 	 */
-	#[ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new CQueueIterator($this->_d);
@@ -165,7 +164,6 @@ class CQueue extends CComponent implements IteratorAggregate,Countable
 	 * This method is required by Countable interface.
 	 * @return integer number of items in the queue.
 	 */
-	#[ReturnTypeWillChange]
 	public function count()
 	{
 		return $this->getCount();

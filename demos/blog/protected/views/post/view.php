@@ -21,7 +21,7 @@ $this->pageTitle=$model->title;
 		)); ?>
 	<?php endif; ?>
 
-	<h3>Leave a Comment</h3>
+	<h3>Deixe o seu comentário</h3>
 
 	<?php if(Yii::app()->user->hasFlash('commentSubmitted')): ?>
 		<div class="flash-success">

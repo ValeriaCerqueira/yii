@@ -3,9 +3,9 @@
  * CDbCriteria class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -168,21 +168,18 @@ class CDbCriteria extends CComponent
 	{
 		$map=array();
 		$params=array();
-		if(is_array($this->params))
+		foreach($this->params as $name=>$value)
 		{
-			foreach($this->params as $name=>$value)
+			if(strpos($name,self::PARAM_PREFIX)===0)
 			{
-				if(strpos($name,self::PARAM_PREFIX)===0)
-				{
-					$newName=self::PARAM_PREFIX.self::$paramCount++;
-					$map[$name]=$newName;
-				}
-				else
-				{
-					$newName=$name;
-				}
-				$params[$newName]=$value;
+				$newName=self::PARAM_PREFIX.self::$paramCount++;
+				$map[$name]=$newName;
 			}
+			else
+			{
+				$newName=$name;
+			}
+			$params[$newName]=$value;
 		}
 		if (!empty($map))
 		{

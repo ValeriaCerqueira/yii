@@ -1,10 +1,10 @@
 <?php
 $this->breadcrumbs=array(
-	'Comments',
+	'Comentários',
 );
 ?>
 
-<h1>Comments</h1>
+<h1>Comentários</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

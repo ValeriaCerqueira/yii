@@ -3,9 +3,9 @@
  * CLocale class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -417,7 +417,7 @@ class CLocale extends CComponent
 	 */
 	public function getLocaleDisplayName($id=null, $category='languages')
 	{
-		$id = $this->getCanonicalID((string)$id);
+		$id = $this->getCanonicalID($id);
 		if (($category == 'languages') && (isset($this->_data[$category][$id])))
 		{
 			return $this->_data[$category][$id];

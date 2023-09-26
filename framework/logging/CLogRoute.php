@@ -3,9 +3,9 @@
  * CLogRoute class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -84,7 +84,7 @@ abstract class CLogRoute extends CComponent
 	 */
 	protected function formatLogMessage($message,$level,$category,$time)
 	{
-		return @date('Y/m/d H:i:s',(int)$time)." [$level] [$category] $message\n";
+		return @date('Y/m/d H:i:s',$time)." [$level] [$category] $message\n";
 	}
 
 	/**

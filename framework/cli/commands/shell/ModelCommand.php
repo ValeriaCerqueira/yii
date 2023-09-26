@@ -3,9 +3,9 @@
  * ModelCommand class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -229,7 +229,7 @@ EOD;
 			$relationName=rtrim(substr($fkName, 0, -2),'_');
 		else
 			$relationName=$fkName;
-		$relationName[0]=strtolower($relationName[0]);
+		$relationName[0]=strtolower($relationName);
 
 		$rawName=$relationName;
 		if($multiple)
@@ -348,7 +348,7 @@ EOD;
 			if($unitTestPath!==false)
 			{
 				$fixtureName=$this->pluralize($className);
-				$fixtureName[0]=strtolower($fixtureName[0]);
+				$fixtureName[0]=strtolower($fixtureName);
 				$list['unit/'.$className.'Test.php']=array(
 					'source'=>$templatePath.DIRECTORY_SEPARATOR.'test.php',
 					'target'=>$unitTestPath.DIRECTORY_SEPARATOR.$className.'Test.php',

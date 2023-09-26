@@ -3,9 +3,9 @@
  * CMssqlPdo class file
  *
  * @author Christophe Boulain <Christophe.Boulain@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -23,7 +23,6 @@ class CMssqlPdoAdapter extends PDO
 	 * @param string|null sequence name. Defaults to null
 	 * @return integer last inserted id
 	 */
-	#[ReturnTypeWillChange]
 	public function lastInsertId ($sequence=NULL)
 	{
 		return $this->query('SELECT CAST(COALESCE(SCOPE_IDENTITY(), @@IDENTITY) AS bigint)')->fetchColumn();
@@ -37,7 +36,6 @@ class CMssqlPdoAdapter extends PDO
 	 *
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function beginTransaction ()
 	{
 		$this->exec('BEGIN TRANSACTION');
@@ -52,7 +50,6 @@ class CMssqlPdoAdapter extends PDO
 	 *
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function commit ()
 	{
 		$this->exec('COMMIT TRANSACTION');
@@ -67,7 +64,6 @@ class CMssqlPdoAdapter extends PDO
 	 *
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function rollBack ()
 	{
 		$this->exec('ROLLBACK TRANSACTION');

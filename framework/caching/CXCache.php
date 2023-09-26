@@ -3,13 +3,13 @@
  * CXCache class file
  *
  * @author Wei Zhuo <weizhuo[at]gmail[dot]com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
- * CXCache implements a cache application module based on {@link https://github.com/lighttpd/xcache xcache}.
+ * CXCache implements a cache application module based on {@link http://xcache.lighttpd.net/ xcache}.
  *
  * To use this application component, the XCache PHP extension must be loaded.
  * Flush functionality will only work correctly if "xcache.admin.enable_auth" is set to "Off" in php.ini.

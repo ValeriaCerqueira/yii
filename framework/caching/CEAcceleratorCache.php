@@ -3,9 +3,9 @@
  * CEAcceleratorCache class file
  *
  * @author Steffen Dietz <steffo.dietz[at]googlemail[dot]com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**

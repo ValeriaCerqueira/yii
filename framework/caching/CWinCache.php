@@ -3,13 +3,13 @@
  * CWinCache class file
  *
  * @author Alexander Makarov <sam@rmcreative.ru>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
- * CWinCache implements a cache application component based on {@link https://www.iis.net/expand/wincacheforphp WinCache}.
+ * CWinCache implements a cache application component based on {@link http://www.iis.net/expand/wincacheforphp WinCache}.
  *
  * To use this application component, the WinCache PHP extension must be loaded.
  *

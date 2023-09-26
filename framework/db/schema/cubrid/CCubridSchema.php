@@ -3,9 +3,9 @@
  * CCubridSchema class file.
  *
  * @author Esen Sagynov <kadismal@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**

@@ -3,9 +3,9 @@
  * This file contains classes implementing list feature.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -85,7 +85,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * This method is required by the interface IteratorAggregate.
 	 * @return Iterator an iterator for traversing the items in the list.
 	 */
-	#[ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new CListIterator($this->_d);
@@ -96,7 +95,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * This method is required by Countable interface.
 	 * @return integer number of items in the list.
 	 */
-	#[ReturnTypeWillChange]
 	public function count()
 	{
 		return $this->getCount();
@@ -300,7 +298,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * @param integer $offset the offset to check on
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetExists($offset)
 	{
 		return ($offset>=0 && $offset<$this->_c);
@@ -313,7 +310,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * @return mixed the item at the offset
 	 * @throws CException if the offset is invalid
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetGet($offset)
 	{
 		return $this->itemAt($offset);
@@ -325,7 +321,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * @param integer $offset the offset to set item
 	 * @param mixed $item the item value
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetSet($offset,$item)
 	{
 		if($offset===null || $offset===$this->_c)
@@ -342,7 +337,6 @@ class CList extends CComponent implements IteratorAggregate,ArrayAccess,Countabl
 	 * This method is required by the interface ArrayAccess.
 	 * @param integer $offset the offset to unset item
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetUnset($offset)
 	{
 		$this->removeAt($offset);

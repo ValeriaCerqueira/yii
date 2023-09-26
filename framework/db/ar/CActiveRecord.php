@@ -3,9 +3,9 @@
  * CActiveRecord class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -1926,7 +1926,6 @@ abstract class CActiveRecord extends CModel
 	 * @param mixed $offset the offset to check on
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetExists($offset)
 	{
 		return $this->__isset($offset);

@@ -3,9 +3,9 @@
  * This file contains classes implementing Map feature.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -78,7 +78,6 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	 * This method is required by the interface IteratorAggregate.
 	 * @return CMapIterator an iterator for traversing the items in the list.
 	 */
-	#[ReturnTypeWillChange]
 	public function getIterator()
 	{
 		return new CMapIterator($this->_d);
@@ -89,7 +88,6 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	 * This method is required by Countable interface.
 	 * @return integer number of items in the map.
 	 */
-	#[ReturnTypeWillChange]
 	public function count()
 	{
 		return $this->getCount();
@@ -305,7 +303,6 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	 * @param mixed $offset the offset to check on
 	 * @return boolean
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetExists($offset)
 	{
 		return $this->contains($offset);
@@ -314,10 +311,9 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	/**
 	 * Returns the element at the specified offset.
 	 * This method is required by the interface ArrayAccess.
-	 * @param mixed $offset the offset to retrieve element.
+	 * @param integer $offset the offset to retrieve element.
 	 * @return mixed the element at the offset, null if no element is found at the offset
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetGet($offset)
 	{
 		return $this->itemAt($offset);
@@ -326,10 +322,9 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	/**
 	 * Sets the element at the specified offset.
 	 * This method is required by the interface ArrayAccess.
-	 * @param mixed $offset the offset to set element
+	 * @param integer $offset the offset to set element
 	 * @param mixed $item the element value
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetSet($offset,$item)
 	{
 		$this->add($offset,$item);
@@ -340,7 +335,6 @@ class CMap extends CComponent implements IteratorAggregate,ArrayAccess,Countable
 	 * This method is required by the interface ArrayAccess.
 	 * @param mixed $offset the offset to unset element
 	 */
-	#[ReturnTypeWillChange]
 	public function offsetUnset($offset)
 	{
 		$this->remove($offset);

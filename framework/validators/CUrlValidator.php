@@ -3,9 +3,9 @@
  * CUrlValidator class file.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
@@ -210,7 +210,7 @@ if(jQuery.trim(value)!='') {
 				}
 				else
 				{
-					$value.=idn_to_utf8($matches[2][0]);
+					$value=idn_to_utf8($matches[2][0]);
 				}
 				$value.=$matches[3][0];
 			}

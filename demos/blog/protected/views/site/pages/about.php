@@ -1,9 +1,9 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - About';
+$this->pageTitle=Yii::app()->name . ' - Sobre o nosso blog';
 $this->breadcrumbs=array(
-	'About',
+	'Sobre o nosso blog',
 );
 ?>
-<h1>About</h1>
+<h1>Sobre o nosso blog.</h1>
 
-<p>This is the "about" page for my blog site.</p>
+<p>Blog criado para compartilhamento de dicas e conteúdos sobre gestão automatizada de prestadores de serviço.</p>

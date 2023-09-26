@@ -3,14 +3,14 @@
  * CZendDataCache class file
  *
  * @author Steffen Dietz <steffo.dietz[at]googlemail[dot]com>
- * @link https://www.yiiframework.com/
+ * @link http://www.yiiframework.com/
  * @copyright 2008-2013 Yii Software LLC
- * @license https://www.yiiframework.com/license/
+ * @license http://www.yiiframework.com/license/
  */
 
 /**
  * CZendDataCache implements a cache application module based on the Zend Data Cache
- * delivered with {@link https://www.zend.com/en/products/server/ ZendServer}.
+ * delivered with {@link http://www.zend.com/en/products/server/ ZendServer}.
  *
  * To use this application component, the Zend Data Cache PHP extension must be loaded.
  *
