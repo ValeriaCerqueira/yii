@@ -111,24 +111,22 @@ class PostController extends Controller
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
-	/**
-	 * Lists all models.
-	 */
+  
 	public function actionIndex()
-	{
-		$criteria=new CDbCriteria(array(
-			'condition'=>'status='.Post::STATUS_PUBLISHED,
-			'order'=>'update_time DESC',
-			'with'=>'commentCount',
-		));
-		if(isset($_GET['tag']))
-			$criteria->addSearchCondition('tags',$_GET['tag']);
+	{	
+        $url = 'https://my-json-server.typicode.com/ValeriaCerqueira/banco/posts';
+   		 $ch = curl_init($url);
+   		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    	$jsonData = curl_exec($ch);
+    	curl_close($ch);
+    	return $jsonData;
 
-		$dataProvider=new CActiveDataProvider('Post', array(
-			'pagination'=>array(
-				'pageSize'=>Yii::app()->params['postsPerPage'],
-			),
-			'criteria'=>$criteria,
+		//$jsonData = $this->fetchDataFromMyJSONServer();
+    	$data = json_decode($jsonData, true);
+
+		$dataProvider = new CArrayDataProvider($posts, array(
+			'pagination' => array(
+				'pageSize' => Yii::app()->params['postsPerPage'],
 		));
 
 		$this->render('index',array(
