@@ -3,10 +3,8 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Conexa e você',
 
-	// preloading 'log' component
 	'preload'=>array('log'),
 
-	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
@@ -14,10 +12,8 @@ return array(
 
 	'defaultController'=>'post',
 
-	// application components
 	'components'=>array(
 		'user'=>array(
-			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
 		'db'=>array(
@@ -25,7 +21,6 @@ return array(
 			'tablePrefix' => 'tbl_',
 		),
 			'errorHandler'=>array(
-			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
 		'urlManager'=>array(

@@ -4,45 +4,31 @@ class PostController extends Controller
 {
 	public $layout='column2';
 
-	/**
-	 * @var CActiveRecord the currently loaded data model instance.
-	 */
 	private $_model;
 
-	/**
-	 * @return array action filters
-	 */
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+			'accessControl', 
 		);
 	}
 
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to access 'index' and 'view' actions.
+			array('allow',  
 				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated users to access all actions
+			array('allow', 
 				'users'=>array('@'),
 			),
-			array('deny',  // deny all users
+			array('deny',  
 				'users'=>array('*'),
 			),
 		);
 	}
-
-	/**
-	 * Displays a particular model.
-	 */
+	
 	public function actionView()
 	{
 		$post=$this->loadModel();
@@ -54,10 +40,6 @@ class PostController extends Controller
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionCreate()
 	{
 		$model=new Post;
@@ -73,10 +55,6 @@ class PostController extends Controller
 		));
 	}
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 */
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
@@ -92,18 +70,12 @@ class PostController extends Controller
 		));
 	}
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 */
 	public function actionDelete()
 	{
 		if(Yii::app()->request->isPostRequest)
 		{
-			// we only allow deletion via POST request
 			$this->loadModel()->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(array('index'));
 		}
@@ -111,32 +83,40 @@ class PostController extends Controller
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
-  
 	public function actionIndex()
 	{	
-        $url = 'https://my-json-server.typicode.com/ValeriaCerqueira/banco/posts';
-   		 $ch = curl_init($url);
-   		 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    	$jsonData = curl_exec($ch);
-    	curl_close($ch);
-    	return $jsonData;
+		$criteria=new CDbCriteria(array(
+					'condition'=>'status='.Post::STATUS_PUBLISHED,
+					'order'=>'update_time DESC',
+					'with'=>'commentCount',
+		));
 
-		//$jsonData = $this->fetchDataFromMyJSONServer();
-    	$data = json_decode($jsonData, true);
+		if(isset($_GET['tag']))
+				$criteria->addSearchCondition('tags',$_GET['tag']);
+
+		$url = 'https://my-json-server.typicode.com/ValeriaCerqueira/banco/post';
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$jsonData = curl_exec($ch);
+		curl_close($ch);
+		return $jsonData;
+		
+	
+		$data = json_decode($jsonData, true);
+
+		$posts = $data['post'];
 
 		$dataProvider = new CArrayDataProvider($posts, array(
 			'pagination' => array(
 				'pageSize' => Yii::app()->params['postsPerPage'],
+			),
 		));
 
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$this->render('index', array(
+			'dataProvider' => $dataProvider,
 		));
 	}
 
-	/**
-	 * Manages all models.
-	 */
 	public function actionAdmin()
 	{
 		$model=new Post('search');
@@ -147,10 +127,7 @@ class PostController extends Controller
 		));
 	}
 
-	/**
-	 * Suggests tags based on the current user input.
-	 * This is called via AJAX when the user is entering the tags input.
-	 */
+	
 	public function actionSuggestTags()
 	{
 		if(isset($_GET['q']) && ($keyword=trim($_GET['q']))!=='')
@@ -161,10 +138,7 @@ class PostController extends Controller
 		}
 	}
 
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 */
+	
 	public function loadModel()
 	{
 		if($this->_model===null)
@@ -183,14 +157,7 @@ class PostController extends Controller
 		return $this->_model;
 	}
 
-	/**
-	 * Creates a new comment.
-	 * This method attempts to create a new comment based on the user input.
-	 * If the comment is successfully created, the browser will be redirected
-	 * to show the created comment.
-	 * @param Post the post that the new comment belongs to
-	 * @return Comment the comment instance
-	 */
+	
 	protected function newComment($post)
 	{
 		$comment=new Comment;
