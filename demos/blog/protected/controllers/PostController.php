@@ -105,6 +105,7 @@ class PostController extends Controller
 		$data = json_decode($jsonData, true);
 
 		$posts = $data['post'];
+		
 
 		$dataProvider = new CArrayDataProvider($posts, array(
 			'pagination' => array(
